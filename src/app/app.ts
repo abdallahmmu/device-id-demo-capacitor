@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Device } from '@capacitor/device';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,14 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('device-id-demo-capacitor');
+  deviceId = signal<string>('');
+
+  constructor() {
+    this.loadDeviceId();
+  }
+
+  async loadDeviceId() {
+    const info = await Device.getId();
+    this.deviceId.set(info.identifier);
+  }
 }
