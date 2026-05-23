@@ -1,0 +1,13 @@
+<button  class="bg-indigo-200 p-4" (click)="openCam()">Test Scan Component</button> 
+
+<div class="scanner-container hidden">
+
+  <x-dot-document-auto-capture-ui
+    id="document-ui">
+  </x-dot-document-auto-capture-ui>
+
+  <x-dot-document-auto-capture
+    id="document-camera">
+  </x-dot-document-auto-capture>
+
+</div>
